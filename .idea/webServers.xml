@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="1a52a799-3f3a-4751-8bad-1c86eca45ba6" name="dev" url="http://192.168.1.15">
+        <fileTransfer mountedRoot="\\wsl$\Ubuntu\home\avan" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>
