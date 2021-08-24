@@ -2,7 +2,7 @@ import os
 import random
 
 from flask import Flask
-from slack_sdk import WebClient
+from slack import WebClient
 from slackeventsapi import SlackEventAdapter
 
 app = Flask(__name__)
