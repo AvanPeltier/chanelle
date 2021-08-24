@@ -1,4 +1,6 @@
 import os
+import random
+
 from flask import Flask
 from slack_sdk import WebClient
 from slackeventsapi import SlackEventAdapter
@@ -20,6 +22,26 @@ MESSAGE_BLOCK = {
 @app.route("/")
 def hello_world():
     return "Hello World"
+
+@slack_events_adapter.on("message")
+def message(payload):
+    event = payload.get("event", {})
+    text = event.get("text")
+    if "flip a coin" in text.lower():
+        channel_id = event.get("channel")
+
+        rand_int = random.randint(0, 1)
+
+        if rand_int == 0:
+            results = "Heads"
+        else:
+            results = "Tails"
+        message = f"The result is {results}"
+
+        MESSAGE_BLOCK["text"]["text"] = message
+        message_to_send = {"channel": channel_id, "blocks": MESSAGE_BLOCK}
+
+        return slack_web_client.chat_postMessage(**message_to_send)
 
 
 if __name__ == '__main__':
