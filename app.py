@@ -1,11 +1,13 @@
+import os
 from flask import Flask
 from slack_sdk import WebClient
+from slackeventsapi import SlackEventAdapter
 
 app = Flask(__name__)
-token = "xoxb-2398498782434-2383786040871-fw14DgYqmkUNBVM5deA8awXN"
 
-slack_events_adapter = SlackEventAdapter()
-slack_web_client = WebClient(token=token)
+
+slack_events_adapter = SlackEventAdapter(os.environ.get("SLACK_EVENTS_TOKEN"), "/slack/events", app)
+slack_web_client = WebClient(token=os.environ.get("SLACKBOT_TOKEN"))
 
 MESSAGE_BLOCK = {
     "type": "section",
