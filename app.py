@@ -19,9 +19,11 @@ MESSAGE_BLOCK = {
     }
 }
 
+
 @app.route("/")
 def hello_world():
     return "Hello World"
+
 
 @slack_events_adapter.on("message")
 def message(payload):

@@ -2,8 +2,12 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="1a52a799-3f3a-4751-8bad-1c86eca45ba6" name="dev" url="http://192.168.1.15">
-        <fileTransfer mountedRoot="\\wsl$\Ubuntu\home\avan" accessType="MOUNT" port="0" />
+      <webServer id="1a52a799-3f3a-4751-8bad-1c86eca45ba6" name="dev" url="https://csh.rit.edu/~tex">
+        <fileTransfer rootFolder="/users/u28/tex/public_html/chanelle" accessType="SFTP" host="freedom.csh.rit.edu" port="22" sshConfigId="f6dfebdc-84cd-4744-819f-478b7a3fa93d" sshConfig="tex@freedom.csh.rit.edu:22 password">
+          <advancedOptions>
+            <advancedOptions keepAliveTimeout="0" />
+          </advancedOptions>
+        </fileTransfer>
       </webServer>
     </option>
   </component>
