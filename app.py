@@ -38,9 +38,10 @@ def message(payload):
             results = "Heads"
         else:
             results = "Tails"
-        message = f"The result is {results}"
 
-        MESSAGE_BLOCK["text"]["text"] = message
+        output = f"The result is {results}"
+
+        MESSAGE_BLOCK["text"]["text"] = output
         message_to_send = {"channel": channel_id, "blocks": MESSAGE_BLOCK}
 
         return slack_web_client.chat_postMessage(**message_to_send)
