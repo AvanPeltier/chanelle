@@ -1,4 +1,3 @@
-import env
 import os
 import random
 
@@ -10,8 +9,8 @@ from slackeventsapi import SlackEventAdapter
 app = Flask(__name__)
 
 
-slack_events_adapter = SlackEventAdapter((env.environ.get("SLACK_EVENTS_TOKEN")), "/slack/events", app)
-slack_web_client = WebClient(token=env.environ.get("SLACKBOT_TOKEN"))
+slack_events_adapter = SlackEventAdapter((os.getenv("SLACK_EVENTS_TOKEN")), "/slack/events", app)
+slack_web_client = WebClient(token=os.getenv("SLACKBOT_TOKEN"))
 
 MESSAGE_BLOCK = {
     "type": "section",
