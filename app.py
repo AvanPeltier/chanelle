@@ -9,7 +9,7 @@ from slackeventsapi import SlackEventAdapter
 app = Flask(__name__)
 
 
-slack_events_adapter = SlackEventAdapter((os.getenv("SLACK_EVENTS_TOKEN")), "/slack/events", app)
+slack_events_adapter = SlackEventAdapter((os.getenv("SIGNING_SECRET")), "/slack/events", app)
 slack_web_client = WebClient(token=os.getenv("SLACKBOT_TOKEN"))
 
 MESSAGE_BLOCK = {
